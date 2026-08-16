@@ -1,0 +1,370 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   Roberto Villalva — Traducteur agréé
+   Fonts : Cormorant Garamond (headings) · Raleway (body)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ─── Reset ─────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ─── Design tokens ──────────────────────────────────────────────────────── */
+
+:root {
+    --color-bg:        #faf8f6;
+    --color-bg-warm:   #f3ede7;
+    --color-text:      #2a2520;
+    --color-muted:     #6b6560;
+    --color-border:    #ddd;
+    --color-link:      #5a4a3a;
+
+    --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --font-body:    'Raleway', Arial, Helvetica, sans-serif;
+
+    --section-bg:      rgba(250, 248, 246, 0.93);
+    --hero-bg:         rgba(243, 237, 231, 0.96);
+    --card-bg:         rgba(255, 255, 255, 0.82);
+
+    --radius:     6px;
+    --transition: 0.3s ease;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 1.07rem;
+    line-height: 1.8;
+    color: var(--color-text);
+
+    background-color: #e8e0d8;
+    background-image: url('../img/library.jpg');
+    background-size: cover;
+    background-position: center 40%;
+    background-attachment: fixed;
+
+    padding-top: 260px; /* fallback — overridden by JS */
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-text);
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 1rem; }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.4rem); margin-bottom: 1.2rem; }
+h4 { font-size: 1.35rem; margin-bottom: 0.6rem; font-weight: 600; }
+
+p {
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+}
+
+p:last-child { margin-bottom: 0; }
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+a:hover { color: var(--color-text); }
+
+strong { font-weight: 500; color: var(--color-text); }
+
+/* ─── Button ─────────────────────────────────────────────────────────────── */
+
+.btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.65rem 1.8rem;
+    border: 1px solid var(--color-text);
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text);
+    transition: background-color var(--transition), color var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+}
+
+/* ─── Header ─────────────────────────────────────────────────────────────── */
+
+.header {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-bg);
+    z-index: 1000;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    display: block;
+}
+
+.nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+}
+
+/* ─── Language switcher ──────────────────────────────────────────────────── */
+
+.lang-switch {
+    display: inline-flex;
+    gap: 0.4rem;
+}
+
+.lang-switch button {
+    background: none;
+    border: 1px solid var(--color-border);
+    padding: 0.15rem 0.55rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    border-radius: 3px;
+    color: var(--color-muted);
+    transition: background-color var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.lang-switch button.active {
+    background-color: var(--color-text);
+    border-color: var(--color-text);
+    color: white;
+}
+
+.lang-switch button:not(.active):hover {
+    border-color: var(--color-text);
+    color: var(--color-text);
+}
+
+/* ─── Navigation ─────────────────────────────────────────────────────────── */
+
+.nav {
+    display: flex;
+    gap: 1.4rem;
+}
+
+.nav a {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    position: relative;
+    padding-bottom: 2px;
+    transition: color var(--transition);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-text);
+    transition: width var(--transition);
+}
+
+.nav a:hover {
+    color: var(--color-text);
+}
+
+.nav a:hover::after,
+.nav a.active-nav::after {
+    width: 100%;
+}
+
+.nav a.active-nav {
+    color: var(--color-text);
+}
+
+/* ─── Main ───────────────────────────────────────────────────────────────── */
+
+main {
+    padding-bottom: 80vh;
+}
+
+/* ─── Sections ───────────────────────────────────────────────────────────── */
+
+.section {
+    padding: 4rem 3rem;
+    max-width: 900px;
+    margin: 0 auto 2rem auto;
+    background-color: var(--section-bg);
+    border-radius: var(--radius);
+    scroll-margin-top: var(--header-height, 260px);
+}
+
+.hero {
+    padding: 5.5rem 3rem 4.5rem;
+    text-align: center;
+    background-color: var(--hero-bg);
+    scroll-margin-top: var(--header-height, 260px);
+}
+
+.hero p {
+    font-size: 1.12rem;
+    max-width: 580px;
+    margin: 0 auto 0.5rem;
+    color: var(--color-muted);
+}
+
+/* ─── About ──────────────────────────────────────────────────────────────── */
+
+.about p + p {
+    margin-top: 0.75rem;
+}
+
+/* ─── Service cards ──────────────────────────────────────────────────────── */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    padding: 1.6rem 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.service-card:hover {
+    box-shadow: 0 4px 18px rgba(42, 37, 32, 0.08);
+    transform: translateY(-2px);
+}
+
+.service-card h4 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+    min-height: 3.24rem; /* 2 lignes × (1.35rem × line-height 1.2) */
+    display: flex;
+    align-items: center;
+}
+
+/* ─── Contact links ──────────────────────────────────────────────────────── */
+
+.contact p a {
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1px;
+    transition: border-color var(--transition), color var(--transition);
+}
+
+.contact p a:hover {
+    border-color: var(--color-text);
+    color: var(--color-text);
+}
+
+/* ─── Fade-in animation ──────────────────────────────────────────────────── */
+
+.section,
+.hero {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.section.visible,
+.hero.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ─── Responsive — tablet ────────────────────────────────────────────────── */
+
+@media (max-width: 860px) {
+    .section {
+        padding: 3rem 2rem;
+    }
+}
+
+/* ─── Responsive — mobile ────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+
+    body {
+        background-attachment: scroll; /* fixed bg broken on iOS */
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 1.2rem;
+        gap: 0.7rem;
+    }
+
+    .nav-wrapper {
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: 0.6rem 1rem;
+    }
+
+    .nav a {
+        font-size: 0.78rem;
+    }
+
+    .logo img {
+        height: 58px;
+    }
+
+    .section {
+        padding: 2.5rem 1.3rem;
+        margin-bottom: 1.2rem;
+        border-radius: 4px;
+    }
+
+    .hero {
+        padding: 3.5rem 1.3rem 3rem;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem 1.2rem;
+    }
+}

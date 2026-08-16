@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="meta.title"></title>
+
+    <!-- Google Fonts : Cormorant Garamond (titres) + Raleway (corps) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:wght@700&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Charger les traductions AVANT main.js -->
+    <script src="js/translations.js" defer></script>
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        <img src="img/logo-option-3.svg" alt="Logo Roberto Villalva">
+    </div>
+
+    <div class="nav-wrapper">
+
+        <div class="lang-row">
+            <div class="lang-switch">
+                <button id="switch-fr" class="active">FR</button>
+                <button id="switch-es">ES</button>
+                <button id="switch-de">DE</button>
+                <button id="switch-en">EN</button>
+            </div>
+        </div>
+
+        <nav class="nav">
+            <a href="#intro" data-key="menu.home"></a>
+            <a href="#about" data-key="menu.about"></a>
+            <a href="#services" data-key="menu.services"></a>
+            <a href="#pricing" data-key="menu.pricing"></a>
+            <a href="#contact" data-key="menu.contact"></a>
+        </nav>
+
+    </div>
+
+</header>
+
+<main>
+
+<section id="intro" class="section hero">
+    <h1 data-key="hero.title"></h1>
+    <p data-key="hero.subtitle"></p>
+    <a href="#services" class="btn" data-key="hero.cta"></a>
+</section>
+
+<section id="about" class="section about">
+    <h2 data-key="about.title"></h2>
+    <p data-key="about.p1"></p>
+    <p data-key="about.p2"></p>
+</section>
+
+<section id="services" class="section services">
+    <h2 data-key="services.title"></h2>
+
+    <div class="service-grid">
+
+        <div class="service-card">
+            <h4 data-key="services.s1_title"></h4>
+            <p data-key="services.s1_text"></p>
+        </div>
+
+        <div class="service-card">
+            <h4 data-key="services.s2_title"></h4>
+            <p data-key="services.s2_text"></p>
+        </div>
+
+        <div class="service-card">
+            <h4 data-key="services.s3_title"></h4>
+            <p data-key="services.s3_text"></p>
+        </div>
+
+    </div>
+</section>
+
+<section id="pricing" class="section pricing">
+    <h2 data-key="pricing.title"></h2>
+    <p data-key="pricing.p1"></p>
+    <p data-key="pricing.p2"></p>
+    <a class="btn" href="mailto:roberto@villalva.ca" data-key="pricing.cta"></a>
+</section>
+
+<section id="contact" class="section contact">
+    <h2 data-key="contact.title"></h2>
+    <p data-key="contact.p1"></p>
+
+    <p><strong>Email :</strong> <a href="mailto:roberto@villalva.ca">roberto@villalva.ca</a></p>
+    <p><strong>Téléphone :</strong> <a href="tel:5145006472">514‑500‑6472</a></p>
+</section>
+
+</main>
+
+</body>
+</html>
