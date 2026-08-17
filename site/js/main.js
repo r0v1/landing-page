@@ -65,12 +65,20 @@ function initActiveNav() {
 
 /* ─── Language switcher ──────────────────────────────────────────────────── */
 
+const colleagueUrls = {
+    fr: "https://tradumyre.de/fr/",
+    de: "https://tradumyre.de/de/",
+    en: "https://tradumyre.de/en/",
+    es: "https://tradumyre.de/en/"  /* pas de version espagnole — anglais par défaut */
+};
+
 function setLang(lang) {
     applyTranslations(lang);
     adjustAnchors();
     ["fr", "es", "de", "en"].forEach(l => {
         document.getElementById("switch-" + l).classList.toggle("active", lang === l);
     });
+    document.getElementById("colleague-link").href = colleagueUrls[lang];
 }
 
 /* ─── Init ───────────────────────────────────────────────────────────────── */

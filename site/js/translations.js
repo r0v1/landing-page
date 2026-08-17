@@ -162,6 +162,27 @@ const translations = {
         }
     },
 
+    colleague: {
+        title: {
+            fr: "Interprétation et traduction en Allemagne",
+            es: "Interpretación y traducción en Alemania",
+            de: "Dolmetschen und Übersetzen in Deutschland",
+            en: "Interpretation and translation in Germany"
+        },
+        p1a: {
+            fr: "Pour les clients dont les besoins sont en Allemagne, ma collègue ",
+            es: "Para los clientes con necesidades en Alemania, mi colega ",
+            de: "Für Kunden mit Bedarf in Deutschland ist meine Kollegin ",
+            en: "For clients whose needs are in Germany, my colleague "
+        },
+        p1b: {
+            fr: " est interprète de conférence et traductrice, membre du BDÜ. Elle offre des services d'interprétation et de traduction en combinaisons français-allemand et anglais-français :",
+            es: " es intérprete de conferencia y traductora, miembro del BDÜ. Ofrece servicios de interpretación y traducción en las combinaciones francés-alemán e inglés-francés :",
+            de: " ist Konferenzdolmetscherin und Übersetzerin, Mitglied des BDÜ. Sie bietet Dolmetsch- und Übersetzungsdienstleistungen in den Kombinationen Französisch-Deutsch und Englisch-Französisch an :",
+            en: " is a conference interpreter and translator, member of the BDÜ. She offers interpretation and translation services in French-German and English-French combinations :"
+        }
+    },
+
     contact: {
         title: {
             fr: "Contact",

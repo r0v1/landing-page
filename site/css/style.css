@@ -279,6 +279,42 @@ main {
     align-items: center;
 }
 
+/* ─── Colleague note ─────────────────────────────────────────────────────── */
+
+.colleague-note {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.colleague-note h4 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+    min-height: unset;
+    display: block;
+}
+
+.colleague-note p {
+    font-size: 1rem;
+    color: var(--color-muted);
+    margin-bottom: 0;
+}
+
+.colleague-note a {
+    color: var(--color-muted);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1px;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.colleague-note a:hover {
+    color: var(--color-text);
+    border-color: var(--color-text);
+}
+
 /* ─── Contact links ──────────────────────────────────────────────────────── */
 
 .contact p a {
