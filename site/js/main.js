@@ -1,8 +1,8 @@
 /* ─── Translations ───────────────────────────────────────────────────────── */
 
 function applyTranslations(lang) {
-    document.querySelectorAll("[data-key]").forEach(el => {
-        const key = el.getAttribute("data-key");
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
         const parts = key.split(".");
         let node = translations;
         parts.forEach(p => node = node[p]);
