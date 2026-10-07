@@ -1,0 +1,8 @@
+{
+  "name": "villalva-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Aucun test pour l'instant\" && exit 0"
+  }
+}
