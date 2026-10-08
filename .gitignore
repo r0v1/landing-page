@@ -10,3 +10,6 @@ cypress/downloads/
 playwright-report/
 test-results/
 blob-report/
+
+# Playwright BDD (fichiers générés)
+.features-gen/
