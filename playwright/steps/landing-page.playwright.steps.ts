@@ -1,5 +1,6 @@
 import { expect } from "@playwright/test";
 import { Given, When, Then } from "./fixtures";
+import { translations } from "../support/translations.playwright";
 
 Given("je visite la page d'accueil", async ({ homePage }) => {
   await homePage.open();
@@ -57,4 +58,26 @@ When("je change la langue pour {string}", async ({ homePage }, langue: string) =
 
 Then("le lien vers ma collègue pointe vers {string}", async ({ homePage }, url: string) => {
   await expect(homePage.colleagueLink).toHaveAttribute("href", url);
+});
+
+Then("les libellés de navigation correspondent à la langue {string}", async ({ homePage }, langue: string) => {
+  for (const [section, textes] of Object.entries(translations.menu)) {
+    await expect(homePage.navLink(section)).toHaveText(textes[langue]);
+  }
+});
+
+Then("le titre de chaque section correspond à la langue {string}", async ({ homePage }, langue: string) => {
+  const sections = ["about", "services", "pricing", "contact"];
+  for (const section of sections) {
+    await expect(homePage.sectionTitle(section)).toHaveText(translations[section].title[langue]);
+  }
+});
+
+Then("le titre de chaque tuile de service correspond à la langue {string}", async ({ homePage }, langue: string) => {
+  const { s1_title, s2_title, s3_title } = translations.services;
+  await expect(homePage.serviceTileTitles).toHaveText([
+    s1_title[langue],
+    s2_title[langue],
+    s3_title[langue],
+  ]);
 });
