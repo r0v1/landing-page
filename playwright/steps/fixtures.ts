@@ -1,5 +1,5 @@
 import { test as base, createBdd } from "playwright-bdd";
-import { HomePagePO } from "../pages/HomePagePO";
+import { HomePagePO } from "../pages/HomePagePO.playwright";
 
 export const test = base.extend<{ homePage: HomePagePO }>({
   homePage: async ({ page }, use) => {
