@@ -1,5 +1,5 @@
 import { expect } from "@playwright/test";
-import { Given, Then } from "./fixtures";
+import { Given, When, Then } from "./fixtures";
 
 Given("je visite la page d'accueil", async ({ homePage }) => {
   await homePage.open();
@@ -49,4 +49,12 @@ Then("un lien mailto vers {string} est présent", async ({ homePage }, courriel:
 
 Then("un lien tel vers {string} est présent", async ({ homePage }, numero: string) => {
   await homePage.expectLinksVisible(`tel:${numero}`);
+});
+
+When("je change la langue pour {string}", async ({ homePage }, langue: string) => {
+  await homePage.chooseLanguage(langue);
+});
+
+Then("le lien vers ma collègue pointe vers {string}", async ({ homePage }, url: string) => {
+  await expect(homePage.colleagueLink).toHaveAttribute("href", url);
 });
