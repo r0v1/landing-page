@@ -32,3 +32,21 @@ Then(
     }
   }
 );
+
+Then("la section collègue a un titre", async ({ homePage }) => {
+  await expect(homePage.colleagueTitle).toBeVisible();
+  await expect(homePage.colleagueTitle).not.toBeEmpty();
+});
+
+Then("un lien vers le site de Josianne Myre est présent", async ({ homePage }) => {
+  await expect(homePage.colleagueLink).toBeVisible();
+  await expect(homePage.colleagueLink).toHaveAttribute("href", /tradumyre\.de/);
+});
+
+Then("un lien mailto vers {string} est présent", async ({ homePage }, courriel: string) => {
+  await homePage.expectLinksVisible(`mailto:${courriel}`);
+});
+
+Then("un lien tel vers {string} est présent", async ({ homePage }, numero: string) => {
+  await homePage.expectLinksVisible(`tel:${numero}`);
+});

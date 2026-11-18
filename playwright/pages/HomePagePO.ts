@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 
 const SCREEN_SIZES: Record<string, { width: number; height: number }> = {
   mobile: { width: 375, height: 667 },
@@ -66,4 +66,20 @@ export class HomePagePO {
   get contactPhone() {
     return this.page.getByTestId("contact-phone");
   }
+
+  // Repères (locators) : trouver un lien par son adresse (href)
+  linkTo(href: string) {
+    return this.page.locator(`a[href="${href}"]`);
+  }
+
+  // Vérifications (assertions) : au moins un lien trouvé, puis chacun visible
+  async expectLinksVisible(href: string) {
+    const tousLesLiens = this.linkTo(href);
+    await expect(tousLesLiens.first()).toBeVisible();
+    for (const chaqueLien of await tousLesLiens.all()) {
+      await expect(chaqueLien).toBeVisible();
+    }
+  }
 }
+
+
