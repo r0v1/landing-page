@@ -10,20 +10,40 @@ Fonctionnalité: Formulaire de contact
 
   Scénario: Le formulaire affiche les champs attendus
     Alors le formulaire de contact est visible
-    Et les champs "Nom", "Courriel", "Type de service", "Combinaison de langues", "Message" sont présents
+    Et les champs "Nom", "Courriel", "Type de service demandé", "Traduire de", "Vers", "Message" sont présents
+
+  Scénario: Le champ Message est bloqué tant que les étapes n'ont pas été lues
+    Alors les étapes de la suite de la demande sont affichées
+    Et le champ "Message" est désactivé
+    Quand je confirme avoir pris connaissance des étapes
+    Alors le champ "Message" est activé
+
+  Scénario: La note sur l'ordre de traitement des demandes est visible
+    Alors la note sur l'ordre de traitement des demandes est visible
+
+  Scénario: Une demande avec la même langue de départ et d'arrivée est refusée
+    Quand je remplis le formulaire avec la langue de départ "français" et la langue d'arrivée "français"
+    Et j'envoie le formulaire
+    Alors une erreur est affichée pour le champ "Vers"
+    Et aucune demande n'est envoyée
 
   Scénario: Le message est limité à 2000 caractères
-    Quand je saisis un message de 2001 caractères
+    Quand je confirme avoir pris connaissance des étapes
+    Et je saisis un message de 2001 caractères
     Alors le champ message contient 2000 caractères
 
   Scénario: Un compteur affiche le nombre de caractères utilisés
-    Quand je saisis un message de 150 caractères
+    Quand je confirme avoir pris connaissance des étapes
+    Et je saisis un message de 150 caractères
     Alors le compteur affiche "150 / 2000"
 
   Scénario: Un formulaire vide n'est pas envoyé
     Quand j'envoie le formulaire sans le remplir
     Alors une erreur est affichée pour le champ "Nom"
     Et une erreur est affichée pour le champ "Courriel"
+    Et une erreur est affichée pour le champ "Type de service demandé"
+    Et une erreur est affichée pour le champ "Traduire de"
+    Et une erreur est affichée pour le champ "Vers"
     Et une erreur est affichée pour le champ "Message"
     Et aucune demande n'est envoyée
 
@@ -34,10 +54,13 @@ Fonctionnalité: Formulaire de contact
     Et aucune demande n'est envoyée
 
     Exemples:
-      | champ    |
-      | Nom      |
-      | Courriel |
-      | Message  |
+      | champ                   |
+      | Nom                     |
+      | Courriel                |
+      | Type de service demandé |
+      | Traduire de             |
+      | Vers                    |
+      | Message                 |
 
   Scénario: Un message composé seulement d'espaces est refusé
     Quand je remplis le formulaire avec un message composé seulement d'espaces
@@ -56,6 +79,7 @@ Fonctionnalité: Formulaire de contact
     Quand je remplis le formulaire avec des données valides
     Et j'envoie le formulaire
     Alors un message de confirmation est affiché
+    Et le message de confirmation explique comment transmettre les documents
     Et la demande est envoyée par une connexion sécurisée
 
   Scénario: Une erreur du service affiche un message d'erreur et conserve le texte saisi
@@ -80,8 +104,8 @@ Fonctionnalité: Formulaire de contact
   Scénario: La mention de confidentialité est affichée près du formulaire
     Alors la mention de confidentialité est visible
 
-  Scénario: Le formulaire explique comment transmettre les documents
-    Alors une consigne sur la transmission des documents est visible
+  Scénario: Le formulaire explique la suite de la demande et la transmission des documents
+    Alors les étapes de la suite de la demande sont affichées
 
   Scénario: Les coordonnées directes ne sont plus affichées
     Alors aucun lien mailto vers une adresse autre que "info@tradumyre.de" n'est affiché
